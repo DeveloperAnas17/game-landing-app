@@ -1,5 +1,4 @@
 import "./App.css";
-// import "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
