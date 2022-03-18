@@ -1,3 +1,5 @@
+@use "./scss/" as *;
+
 @import url("https://fonts.googleapis.com/css2?family=Rowdies:wght@300;400;700&display=swap");
 
 * {
@@ -16,12 +18,12 @@ body {
 }
 
 body {
-  font-family: "Rowdies", sans-serif;
+  font-family: $font-family;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  background-color: black;
-  color: white;
+  background-color: $black;
+  color: $white;
   overflow: hidden;
 }
 
@@ -52,39 +54,35 @@ iframe {
 
 .overlay {
   position: relative;
-  height: 100%;
-  flex: 1;
-  padding: 1rem;
-  height: 100vh;
-}
 
-.overlay::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* background-color: rgba(#0f0f0f: #000000, $alpha: 0.8); */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.8);
+  }
 }
 
 .main-color {
-  color: #d0a85c;
+  color: $main-color;
 }
 
 .second-color {
-  color: #4267b2;
+  color: $second-color;
 }
 
 .title {
   font-weight: 700;
-}
-.title > span {
-  font-size: 3rem;
-}
-.title > h2 {
-  font-size: 5rem;
-  line-height: 5rem;
+  span {
+    font-size: 3rem;
+  }
+  h2 {
+    font-size: 5rem;
+    line-height: 5rem;
+  }
 }
 
 .container {
@@ -103,33 +101,29 @@ iframe {
 .swiper,
 .swiper-slide {
   height: 100%;
-  /* display: flex;
-  align-items: center;
-  justify-content: center; */
 }
 
 .swiper-pagination-bullet {
-  size: 20px;
-  /* width: $size; */
-  /* height: $size; */
+  $size: 20px;
+  width: $size;
+  height: $size;
   border-radius: unset;
   margin: 10px;
   background-color: transparent;
 
   position: relative;
-}
-.swiper-pagination-bullet::before {
-  content: "";
-  width: 80%;
-  height: 80%;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%) rotate(45deg);
-  background-color: $second-color;
-}
 
-/*
+  &::before {
+    content: "";
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);
+    background-color: $second-color;
+  }
+
   &-active {
     background-color: transparent;
 
@@ -137,7 +131,7 @@ iframe {
       background-color: $main-color;
     }
   }
-} */
+}
 
 .scroll {
   position: fixed;
@@ -158,9 +152,4 @@ iframe {
   100% {
     transform: translateX(-50%) translateY(0);
   }
-}
-
-.hh {
-  display: flex;
-  flex-direction: column-reverse;
 }
